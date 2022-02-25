@@ -1,5 +1,5 @@
 <h1>New Project</h1>
-<%= form_with(model: @project, local: true) do |form| %>
+<%= form_with(model: @project) do |form| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %>
@@ -7,8 +7,8 @@
       </h2>
 
       <ul>
-        <% @project.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        <% @project.errors.each do |msg| %>
+          <li><%= msg.full_message %></li>
         <% end %>
       </ul>
 
